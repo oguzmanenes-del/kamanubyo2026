@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+{{ page.meta_title|default:page.title }}
+{% endblock %}
+
+{% block meta_description %}
+{{ page.meta_description|default:"Kamanubyo2026 içerik sayfası" }}
+{% endblock %}
+
+{% block content %}
+
+<section class="inner-hero text-white position-relative"
+    {% if page.featured_image %}
+        style="background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('{{ page.featured_image.url }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+    {% else %}
+        style="background: linear-gradient(135deg, #161616, #2a2a2a);"
+    {% endif %}
+>
+    <div class="container py-5 text-center">
+        <h1 class="display-4 fw-bold">{{ page.hero_title|default:page.title }}</h1>
+
+        {% if page.hero_subtitle %}
+        <p class="lead mt-3 mb-0">{{ page.hero_subtitle }}</p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="content-box">
+            {{ page.content|linebreaks }}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

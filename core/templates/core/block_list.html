@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Kamanubyo2026 Blog ve Rehber Yazıları{% endblock %}
+{% block meta_description %}Kamanubyo2026 için hazırlanan SEO uyumlu rehber yazıları ve öğrenci odaklı içerikler.{% endblock %}
+
+{% block content %}
+<section class="inner-hero py-5">
+    <div class="container py-4 text-center">
+        <h1 class="display-5 fw-bold">Rehber Yazıları</h1>
+        <p class="lead text-muted mt-3">Kaman, okul, yurt ve öğrenci hayatı üzerine içerikler</p>
+    </div>
+</section>
+
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row g-4">
+            {% for post in posts %}
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card h-100">
+                    <div class="p-4">
+                        <h3 class="h4 mb-3">{{ post.title }}</h3>
+                        <p class="text-muted">{{ post.excerpt|default:post.content|truncatewords:25 }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-light border">Henüz içerik eklenmedi.</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
