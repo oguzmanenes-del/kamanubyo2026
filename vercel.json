@@ -1,12 +1,14 @@
 {
-    "builds": [{
-        "src": "PROJE_KLASORUNUN_ADI/wsgi.py",
-        "use": "@vercel/python"
-    }],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "PROJE_KLASORUNUN_ADI/wsgi.py"
-        }
-    ]
+  "builds": [
+    {
+      "src": "kamanubyo2026_project/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "kamanubyo2026_project/wsgi.py"
+    }
+  ]
 }
